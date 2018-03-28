@@ -2,11 +2,11 @@
 
 (function() {
 
-    if (!window.OpenSeadragon) {
-        console.error('[openseadragon-canvas-overlay] requires OpenSeadragon');
-        return;
-    }
-
+    // if (!window.OpenSeadragon) {
+    //     console.error('[openseadragon-canvas-overlay] requires OpenSeadragon');
+    //     return;
+    // }
+    //
 
     /**
      * @param {Object} options
@@ -114,7 +114,7 @@
 
         },
        resizecanvas: function() {
-
+         
            var origin = new OpenSeadragon.Point(0, 0);
            var viewportZoom = this._viewer.viewport.getZoom(true);
            this._fabricCanvas.setWidth(this._containerWidth);
