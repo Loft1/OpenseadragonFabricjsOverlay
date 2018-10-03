@@ -1,6 +1,6 @@
 // OpenSeadragon canvas Overlay plugin 0.0.1 based on svg overlay plugin
 
-export function openSeaDragonFabricOverlay( OpenSeaDragon, fabric ) {
+export function openSeaDragonFabricOverlay( OpenSeadragon, fabric ) {
 
     /**
      * @param {Object} options
