@@ -3,9 +3,6 @@
   "version": "0.2.0",
   "description": "An OpenSeadragon plugin that adds fabricjs canvas overlay capability.",
   "main": "openseadragon-fabricjs-overlay.js",
-  "dependencies": {
-    "openseadragon": "^2.0.0"
-  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

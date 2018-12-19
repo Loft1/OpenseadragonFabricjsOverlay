@@ -1,12 +1,6 @@
 // OpenSeadragon canvas Overlay plugin 0.0.1 based on svg overlay plugin
 
-(function() {
-
-    if (!window.OpenSeadragon) {
-        console.error('[openseadragon-canvas-overlay] requires OpenSeadragon');
-        return;
-    }
-
+export function openSeaDragonFabricOverlay( OpenSeadragon, fabric ) {
 
     /**
      * @param {Object} options
@@ -16,8 +10,6 @@
      *      Fabric 'virtual' canvas size, for creating objects
      **/
     OpenSeadragon.Viewer.prototype.fabricjsOverlay = function(options) {
-
-
         this._fabricjsOverlayInfo = new Overlay(this);
         this._fabricjsOverlayInfo._scale = options.scale;
 
@@ -133,5 +125,4 @@
        }
 
     };
-
-})();
+}
