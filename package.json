@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/altert/openseadragon-fabricjs-overlay.git"
   },
-  "files": [ ],
+  "files": [],
   "keywords": [
     "openseadragon",
     "plugin",
@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/altert/openseadragon-fabricjs-overlay/issues"
   },
-  "homepage": "https://github.com/altert/openseadragon-fabricjs-overlay#readme"
+  "homepage": "https://github.com/altert/openseadragon-fabricjs-overlay#readme",
+  "dependencies": {
+    "openseadragon": "^2.4.0"
+  }
 }
