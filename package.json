@@ -1,6 +1,6 @@
 {
   "name": "openseadragon-fabricjs-overlay",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "An OpenSeadragon plugin that adds fabricjs canvas overlay capability.",
   "main": "build/openseadragon-fabricjs-overlay.js",
   "devDependencies": {},
