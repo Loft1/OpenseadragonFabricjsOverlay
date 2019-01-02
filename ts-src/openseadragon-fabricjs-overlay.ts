@@ -15,7 +15,7 @@ export class OSDFabricOverlay {
 	private viewer: any;
 	private canvasDiv: HTMLElement;
 	private canvas: HTMLElement;
-	private fabricCanvas : any;
+	public readonly fabricCanvas : any;
 
 	constructor(osdViewer: any, fabric: any, scale: number) {
 
