@@ -91,8 +91,12 @@ export class OSDFabricOverlay {
 	resizecanvas() {
 		let origin = new OpenSeadragon.Point(0, 0);
 		let viewportZoom = this.viewer.viewport.getZoom(true);
-		this.fabricCanvas.setWidth(this.width);
-		this.fabricCanvas.setHeight(this.height);
+		if (this.width != this.fabricCanvas.getWidth()) {
+			this.fabricCanvas.setWidth(this.width);
+		}
+		if (this.height != this.fabricCanvas.getHeight()) {
+			this.fabricCanvas.setHeight(this.height);
+		}
 		let zoom = this.viewer.viewport._containerInnerSize.x * viewportZoom / this.scale;
 		this.fabricCanvas.setZoom(zoom);
 		let viewportWindowPoint = this.viewer.viewport.viewportToWindowCoordinates(origin);
