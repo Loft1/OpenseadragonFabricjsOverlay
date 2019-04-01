@@ -1,0 +1,39 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+		"indent": [true, "tabs"],
+		"linebreak-style": [true, "LF"],
+		"max-line-length": {
+			"options": [80],
+			"severity": "warning"
+		},
+		// remove at such a time we feel like making jsdoc nicer
+		"jsdoc-format": false,
+		"interface-name": false,
+		"object-literal-sort-keys": {
+			"severity": "warning"
+		},
+		"no-require-imports": {
+			"severity": "warning"
+		},
+		"no-var-requires": {
+			"severity": "warning"
+		},
+		"max-classes-per-file": {
+			"severity": "warning"
+		},
+		"variable-name": {
+			"options": [
+				"ban-keywords",
+				"check-format",
+				"allow-leading-underscore"
+			]
+		},
+		"align": [true, "statements"]
+	},
+    "rulesDirectory": []
+}

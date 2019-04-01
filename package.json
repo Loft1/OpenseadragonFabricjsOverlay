@@ -1,14 +1,15 @@
 {
-  "name": "openseadragon-fabricjs-overlay",
-  "version": "0.2.5",
+  "name": "@loft1/osd-fabricjs-overlay",
+  "version": "1.0.0",
   "description": "An OpenSeadragon plugin that adds fabricjs canvas overlay capability.",
-  "main": "build/openseadragon-fabricjs-overlay.js",
+  "main": "index.js",
   "devDependencies": {
-		"typescript": "latest"
-	},
+    "tslint": "^5.14.0",
+    "typescript": "latest"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"prepack": "tsc"
+    "build": "tsc && cp package.json build/package.json"
   },
   "repository": {
     "type": "git",
