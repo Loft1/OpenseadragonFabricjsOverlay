@@ -18,7 +18,7 @@ pipeline {
 		stage('Lint') {
 			steps {
 				echo 'Linting code'
-				sh 'tslint -p .'
+				sh 'npm run lint'
 			}
 		}
 		stage('Build') {
