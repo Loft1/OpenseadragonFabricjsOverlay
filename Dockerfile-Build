@@ -1,0 +1,6 @@
+FROM node:lts-alpine
+LABEL maintainer="Loft1Media"
+
+# install git, required for npm installs
+RUN apk add --no-cache git
+
