@@ -13,7 +13,7 @@ export class OSDFabricOverlay {
 	private viewer: any;
 	private canvasDiv: HTMLElement;
 	private canvas: HTMLElement;
-	private readonly OpenSeadragon: any;
+	private readonly openSeadragon: any;
 
 	constructor(osd: any, osdViewer: any, fabric: any, scale: number) {
 
@@ -21,7 +21,7 @@ export class OSDFabricOverlay {
 			throw new Error("Illegal argument: Scale cannot be 0");
 		}
 
-		this.OpenSeadragon = osd;
+		this.openSeadragon = osd;
 
 		this.fabric = fabric;
 
@@ -89,7 +89,7 @@ export class OSDFabricOverlay {
 	}
 
 	public resizecanvas() {
-		const origin = new this.OpenSeadragon.Point(0, 0);
+		const origin = new this.openSeadragon.Point(0, 0);
 		const viewportZoom = this.viewer.viewport.getZoom(true);
 		if (this.width !== this.fabricCanvas.getWidth()) {
 			this.fabricCanvas.setWidth(this.width);
@@ -97,14 +97,18 @@ export class OSDFabricOverlay {
 		if (this.height !== this.fabricCanvas.getHeight()) {
 			this.fabricCanvas.setHeight(this.height);
 		}
-		const zoom = this.viewer.viewport._containerInnerSize.x * viewportZoom / this.scale;
+		const zoom = this.viewer.viewport._containerInnerSize.x
+				* viewportZoom / this.scale;
 		this.fabricCanvas.setZoom(zoom);
-		const viewportWindowPoint = this.viewer.viewport.viewportToWindowCoordinates(origin);
+		const viewportWindowPoint = this.viewer.viewport
+				.viewportToWindowCoordinates(origin);
 		const x = Math.round(viewportWindowPoint.x);
 		const y = Math.round(viewportWindowPoint.y);
 		const canvasOffset = this.canvasDiv.getBoundingClientRect();
-		const pageScroll = this.OpenSeadragon.getPageScroll();
-		this.fabricCanvas.absolutePan(new this.fabric.Point(canvasOffset.left - x + pageScroll.x, canvasOffset.top - y + pageScroll.y));
+		const pageScroll = this.openSeadragon.getPageScroll();
+		this.fabricCanvas.absolutePan(new this.fabric.Point(
+				canvasOffset.left - x + pageScroll.x,
+				canvasOffset.top - y + pageScroll.y));
 	}
 }
 
@@ -118,7 +122,11 @@ export default function openSeaDragonFabricOverlay( osd: any, fabric: any ) {
 		 * 		Fabric 'virtual' canvas size, for creating objects
 		 **/
 		osd.Viewer.prototype.fabricjsOverlay = function(options: {scale: number}) {
-				this._fabricjsOverlayInfo = new OSDFabricOverlay(osd, this, fabric, options.scale);
+				this._fabricjsOverlayInfo = new OSDFabricOverlay(
+					osd,
+					this,
+					fabric,
+					options.scale);
 
 				return this._fabricjsOverlayInfo;
 		};

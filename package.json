@@ -5,20 +5,18 @@
   "main": "index.js",
   "devDependencies": {
     "tslint": "^5.14.0",
-    "typescript": "latest"
+    "typescript": "^3.6.4"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc && cp package.json build/package.json",
-    "lint": "tslint -p ."
+    "lint": "tslint -p .",
+    "fix-lint": "tslint -p . --fix"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Loft1/openseadragon-fabricjs-overlay.git"
   },
   "author": "Alexey Tikhonov",
-  "license": "BSD-3-Clause",
-  "dependencies": {
-    "openseadragon": "^2.4.0"
-  }
+  "license": "BSD-3-Clause"
 }
