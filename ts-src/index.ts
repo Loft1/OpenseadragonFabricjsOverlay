@@ -1,7 +1,6 @@
 // OpenSeadragon canvas Overlay plugin 0.1.0 based on svg overlay plugin
 
-// @ts-ignore
-import * as OpenSeadragon from "openseadragon/openseadragon";
+import * as OpenSeadragon from "openseadragon/build/openseadragon/openseadragon";
 
 export class OSDFabricOverlay {
 
