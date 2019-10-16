@@ -1,7 +1,5 @@
 // OpenSeadragon canvas Overlay plugin 0.1.0 based on svg overlay plugin
 
-import * as OpenSeadragon from "openseadragon/build/openseadragon/openseadragon";
-
 export class OSDFabricOverlay {
 
 	private static counter = 0;
@@ -15,12 +13,15 @@ export class OSDFabricOverlay {
 	private viewer: any;
 	private canvasDiv: HTMLElement;
 	private canvas: HTMLElement;
+	private readonly OpenSeadragon: any;
 
-	constructor(osdViewer: any, fabric: any, scale: number) {
+	constructor(osd: any, osdViewer: any, fabric: any, scale: number) {
 
 		if (scale === 0) {
 			throw new Error("Illegal argument: Scale cannot be 0");
 		}
+
+		this.OpenSeadragon = osd;
 
 		this.fabric = fabric;
 
@@ -88,7 +89,7 @@ export class OSDFabricOverlay {
 	}
 
 	public resizecanvas() {
-		const origin = new OpenSeadragon.Point(0, 0);
+		const origin = new this.OpenSeadragon.Point(0, 0);
 		const viewportZoom = this.viewer.viewport.getZoom(true);
 		if (this.width !== this.fabricCanvas.getWidth()) {
 			this.fabricCanvas.setWidth(this.width);
@@ -102,7 +103,7 @@ export class OSDFabricOverlay {
 		const x = Math.round(viewportWindowPoint.x);
 		const y = Math.round(viewportWindowPoint.y);
 		const canvasOffset = this.canvasDiv.getBoundingClientRect();
-		const pageScroll = OpenSeadragon.getPageScroll();
+		const pageScroll = this.OpenSeadragon.getPageScroll();
 		this.fabricCanvas.absolutePan(new this.fabric.Point(canvasOffset.left - x + pageScroll.x, canvasOffset.top - y + pageScroll.y));
 	}
 }
@@ -117,7 +118,7 @@ export default function openSeaDragonFabricOverlay( osd: any, fabric: any ) {
 		 * 		Fabric 'virtual' canvas size, for creating objects
 		 **/
 		osd.Viewer.prototype.fabricjsOverlay = function(options: {scale: number}) {
-				this._fabricjsOverlayInfo = new OSDFabricOverlay(this, fabric, options.scale);
+				this._fabricjsOverlayInfo = new OSDFabricOverlay(osd, this, fabric, options.scale);
 
 				return this._fabricjsOverlayInfo;
 		};
